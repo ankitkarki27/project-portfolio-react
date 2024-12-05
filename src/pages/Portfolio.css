@@ -1,0 +1,126 @@
+/* src/index.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h1, h2, h3, p {
+    margin: 0;
+  }
+  
+  /* Navbar */
+  nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  nav button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  nav button:hover {
+    color: #FFD700;
+  }
+  
+  /* Hero Section */
+  header {
+    background-color: #2C3E50;
+    color: white;
+    padding-top: 5rem;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+  }
+  
+  header h1 span {
+    color: #3498DB;
+  }
+  
+  /* Skill Section */
+  section#skills {
+    background-color: #ECF0F1;
+    padding: 3rem 1rem;
+  }
+  
+  section#skills .skill {
+    background-color: #34495E;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+  }
+  
+  section#skills .skill:hover {
+    background-color: #2980B9;
+    cursor: pointer;
+  }
+  
+  /* Projects Section */
+  section#projects {
+    background-color: #BDC3C7;
+    padding: 3rem 1rem;
+  }
+  
+  section#projects .project {
+    background-color: #2C3E50;
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+  
+  section#projects .project a {
+    color: #3498DB;
+    text-decoration: none;
+  }
+  
+  section#projects .project:hover {
+    background-color: #34495E;
+  }
+  
+  section#projects .project a:hover {
+    color: #2980B9;
+  }
+  
+  /* Contact Section */
+  section#contact {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  section#contact a {
+    color: #3498DB;
+    text-decoration: none;
+    margin: 0.5rem;
+  }
+  
+  section#contact a:hover {
+    color: #2980B9;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    background-color: #2C3E50;
+    color: white;
+    padding: 1rem;
+  }
+  
