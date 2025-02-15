@@ -1,172 +1,112 @@
-import React, { useState } from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaFileAlt,FaSun, FaMoon, FaCode, FaPaperPlane  } from 'react-icons/fa';  // Import icons from react-icons
+import React from 'react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-// Tailwind CSS for styling
 const Portfolio = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  // Projects data
-  const projects = [
-    {
-      title: "Django E-Commerce Platform",
-      description: "Full-stack e-commerce solution with advanced payment integration",
-      technologies: ["Django", "Python", "PostgreSQL", "Docker"],
-      githubLink: "https://github.com/ankitkarki27"
-    },
-    {
-      title: "Data Science Analytics Dashboard",
-      description: "Comprehensive data visualization and machine learning insights",
-      technologies: ["Python", "Pandas", "Plotly", "Scikit-learn"],
-      githubLink: "https://github.com/ankitkarki27"
-    },
-    {
-      title: "RESTful API Backend",
-      description: "Scalable microservices architecture with JWT authentication",
-      technologies: ["Django Rest Framework", "Redis", "Celery"],
-      githubLink: "https://github.com/ankitkarki27"
-    }
-  ];
-
-  // Skills
-  const skills = [
-    "Python", "Django", "Django Rest Framework", 
-    "PostgreSQL", "Docker", "Pandas", 
-    "Machine Learning", "Data Analysis", 
-    "RESTful APIs", "Backend Development"
-  ];
-
   return (
-    
-    <div className={`${isDarkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-black'} min-h-screen transition-colors duration-300`}>
-      {/* Navbar */}
-      <nav className="fixed w-full z-20 top-0 left-0 p-4 flex justify-between items-center bg-opacity-80 backdrop-blur-md">
-        <div className="text-2xl font-bold">{'<DevPortfolio />'}</div>
-        <div className="flex items-center space-x-4">
-          <button 
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 rounded-full hover:bg-gray-700 transition"
-          >
-            {isDarkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-800" />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <header className="min-h-screen flex items-center justify-center pt-16 px-4">
-        <div className="text-center max-w-4xl">
-        <div className="bg-blue-500 text-white p-4">Tailwind is working!</div>
-
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Backend Developer & 
-            <br />
-            <TypeAnimation
-              sequence={[
-                'Python Enthusiast',
-                1000,
-                'Django Developer',
-                1000,
-                'Data Science Explorer',
-                1000
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              className="text-blue-500"
-            />
-          </h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Crafting scalable backend solutions and diving deep into data science with a passion for clean, efficient code.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a href="https://github.com/ankitkarki27" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center">
-              <FaCode className="mr-2" /> View Projects
-            </a>
-            <a href="https://github.com/ankitkarki27" className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition flex items-center">
-              <FaPaperPlane className="mr-2" /> Contact Me
-            </a>
-          </div>
+    <div className="min-h-screen bg-zinc-900 text-zinc-400 font-mono p-8 md:p-12">
+      {/* Header */}
+      <header className="flex flex-col md:flex-row justify-between items-center mb-12">
+        <h1 className="text-2xl text-white mb-4 md:mb-0">ankit karki</h1>
+        <div className="flex gap-4 items-center">
+          <a href="https://linkedin.com" className="hover:text-white transition-colors">
+            <Linkedin size={18} />
+          </a>
+          <a href="https://github.com" className="hover:text-white transition-colors">
+            <Github size={18} />
+          </a>
+          <a href="https://twitter.com" className="hover:text-white transition-colors">
+            <Twitter size={18} />
+          </a>
+          <span className="text-sm hidden md:block">ankitkarki8088@gmail.com</span>
         </div>
       </header>
 
-      {/* Skills Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">Tech Skills</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {skills.map((skill, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-700 text-white px-4 py-2 rounded-full hover:scale-105 transition"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">Featured Projects</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-800 p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-2"
-              >
-                <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
-                <p className="mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex} 
-                      className="bg-gray-700 text-xs px-2 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <a 
-                  href={project.githubLink} 
-                  className="flex items-center text-blue-400 hover:text-blue-300"
-                >
-                  <FaGithub className="mr-2" /> View on GitHub
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-16 px-4">
-        <div className="max-w-md mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
-          {/* <div className="flex justify-center space-x-6">
-            <a href="https://github.com/ankitkarki27" className="hover:text-blue-500 transition">
-              <FaGithub size={32} />
-            </a>
-            <a href="https://github.com/ankitkarki27" className="hover:text-blue-500 transition">
-              <FaLinkedin size={32} />
-            </a>
-            <a href="https://github.com/ankitkarki27" className="hover:text-blue-500 transition">
-              <FaFileAlt size={32} />
-            </a>
-          </div> */}
-          <p className="mt-8">
-            Open to collaboration, interesting projects, and tech discussions. 
-            Let's connect and create something amazing!
+      {/* About Section */}
+      <section className="mb-12 space-y-2">
+        <div className="flex gap-2">
+          <span className="text-zinc-500">•</span>
+          <p>
+            <span className="text-zinc-500">backend</span> engineer based in{" "}
+            <span className="text-white">Nepal</span>
           </p>
         </div>
+        <div className="flex gap-2">
+          <span className="text-zinc-500">•</span>
+          <p>
+            worked on a few projects,{" "}
+            <a href="#" className="text-white hover:underline">
+              learn more
+            </a>
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <span className="text-zinc-500">•</span>
+          <p>currently exploring DRF & DS</p>
+        </div>
+        {/* <div className="flex gap-2">
+          <span className="text-zinc-500">•</span>
+          <p>
+            talks about frontend on{" "}
+            <a href="#" className="text-white hover:underline">
+              youtube
+            </a>
+          </p>
+        </div> */}
       </section>
 
-      {/* Footer */}
-      <footer className="py-6 text-center">
-        <p>© 2024 My Developer Portfolio. All Rights Reserved.</p>
-      </footer>
+      {/* Navigation */}
+      <nav className="mb-8">
+        <ul className="flex gap-6 justify-center md:justify-start">
+          <li className="text-white cursor-pointer">web apps</li>
+          <li className="hover:text-white cursor-pointer">plugins</li>
+          <li className="hover:text-white cursor-pointer">fun</li>
+        </ul>
+      </nav>
+
+      {/* Projects */}
+      <section className="space-y-4 mb-12">
+        {['Jobportal', 'Ecommerce System','Donors Nepal', 'Uthaoo'].map((project, index) => (
+          <div key={index} className="flex justify-between items-center group">
+            <div>
+              <span className="text-white">{project}</span>
+              <span className="mx-2">-</span>
+              <span>
+                {project === 'noterr'
+                  ? 'save & organize your bookmarks like a pro'
+                  : project === 'updatly'
+                  ? 'ready to use changelog for your saas'
+                  : project === 'lemmaui'
+                  ? 'generate code using prompt/json using ai'
+                  : 'match with developers, connect with people, etc'}
+              </span>
+            </div>
+            {/* <div className="flex items-center gap-2">
+              <span>{index === 0 ? '50' : index === 1 ? '35' : index === 2 ? '20' : '100'} users</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+            </div> */}
+          </div>
+        ))}
+      </section>
+
+      {/* Writings */}
+      <section>
+        <h2 className="text-white text-xl mb-4">writings</h2>
+        <div className="space-y-3">
+          {[
+            { title: 'the journey of building noterr', date: '30 jan, 2025' },
+            { title: 'light and dark mode in react native', date: '29 dec, 2024' },
+            { title: 'script to accept all invites on linkedin', date: '24 dec, 2024' },
+          ].map((writing, index) => (
+            <div key={index} className="flex justify-between items-center">
+              <a href="#" className="hover:text-white">
+                {writing.title}
+              </a>
+              <span>{writing.date}</span>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

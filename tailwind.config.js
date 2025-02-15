@@ -1,10 +1,17 @@
-// tailwind.config.js
 module.exports = {
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}", // Ensure this is correct
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        shimmer: 'shimmer 3s linear infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
+        }
+      }
+    },
   },
   plugins: [],
-};
+}
